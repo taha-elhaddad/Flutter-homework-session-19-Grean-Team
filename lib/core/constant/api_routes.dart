@@ -9,8 +9,13 @@ class ApiRoutes {
 
   static String todos = '$base/todos';
 
+  static String albums = '$base/albums';
+
   static String post(String? id) => '$base/post/$id';
 
   static String todo(String? id) => '$base/todo/$id';
+
+  static String album(String? id) => '$base/album/$id';
+
 
 }

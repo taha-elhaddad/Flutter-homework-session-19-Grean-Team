@@ -5,6 +5,7 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
 
 import '/core/models/post/post.dart';
+import 'album/album.dart';
 
 part 'serializers.g.dart';
 
@@ -12,6 +13,7 @@ part 'serializers.g.dart';
 ///   - Usually you only add models here that you expect to fetch from some API
 @SerializersFor([
   Post,
+  Album,
 ])
 
 /// Can add additional plugins that will serialize types like [DateTime]

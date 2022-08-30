@@ -11,7 +11,9 @@ import 'package:flutter_clean_architecture_starter/core/services/navigation/navi
 import 'package:flutter_clean_architecture_starter/core/utils/file_helper.dart';
 import 'package:get_it/get_it.dart';
 
+import 'core/data_sources/albums/album_remote_data_source.dart';
 import 'core/data_sources/posts/post_remote_data_source.dart';
+import 'core/repositories/albums_repository/albums_repository.dart';
 import 'core/repositories/posts_repository/posts_repository.dart';
 
 GetIt locator = GetIt.instance;
@@ -36,12 +38,11 @@ Future<void> setupLocator() async {
 
   // Data sources
 
-  locator.registerLazySingleton<PostsRemoteDataSource>(
-    () => PostsRemoteDataSourceImpl(),
-  );
+  locator.registerLazySingleton<PostsRemoteDataSource>(() => PostsRemoteDataSourceImpl(),);
+  locator.registerLazySingleton<AlbumsRemoteDataSource>(() => AlbumsRemoteDataSourceImpl(),);
 
   locator.registerLazySingleton<PostsRepository>(() => PostsRepositoryImpl());
-
+  locator.registerLazySingleton<AlbumsRepository>(() => AlbumsRepositoryImpl());
   await _setupSharedPreferences();
 
   // Utils
